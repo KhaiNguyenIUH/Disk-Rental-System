@@ -118,7 +118,7 @@ namespace DiskRental
                 rent = new DiskRentalDataContext();
                 var u = rent.RentInfos.Where(b => b.RentID == Int32.Parse(textBox2.Text)).FirstOrDefault();
                 u.LateFee = Decimal.Parse("10000");
-                DialogResult dialogResult = MessageBox.Show("Fee: " + u.LateFee.ToString(), "Thanh Toán phí trễ hạn", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Trễ "+textBox3.Text+ " ngày"+" \rPhí: " + u.LateFee.ToString(), "Thanh Toán phí trễ hạn", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     MessageBox.Show("Thanh toán thành công");

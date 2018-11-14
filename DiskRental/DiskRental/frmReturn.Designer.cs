@@ -32,6 +32,7 @@
             System.Windows.Forms.Label label4;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnConfirm = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.txtTime = new System.Windows.Forms.Label();
             this.txtDiskID = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
@@ -49,8 +51,6 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.txtRentID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             invoiceNoLabel = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
@@ -88,7 +88,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(955, 462);
+            this.tabControl1.Size = new System.Drawing.Size(1150, 665);
             this.tabControl1.TabIndex = 127;
             // 
             // tabPage1
@@ -102,23 +102,32 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(8);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(947, 436);
+            this.tabPage1.Size = new System.Drawing.Size(1142, 639);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Trả lẻ";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.TextChanged += new System.EventHandler(this.txtDiskID_TextChanged);
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(1132, 585);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(10, 20);
+            this.textBox3.TabIndex = 129;
+            this.textBox3.Visible = false;
+            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(839, 410);
+            this.textBox2.Location = new System.Drawing.Point(1132, 613);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(10, 20);
             this.textBox2.TabIndex = 128;
+            this.textBox2.Visible = false;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(390, 235);
+            this.dateTimePicker1.Location = new System.Drawing.Point(454, 336);
             this.dateTimePicker1.MinDate = new System.DateTime(2018, 11, 7, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(230, 20);
@@ -127,7 +136,7 @@
             // btnConfirm
             // 
             this.btnConfirm.Enabled = false;
-            this.btnConfirm.Location = new System.Drawing.Point(661, 143);
+            this.btnConfirm.Location = new System.Drawing.Point(725, 244);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(112, 86);
             this.btnConfirm.TabIndex = 127;
@@ -141,7 +150,7 @@
             this.groupBox1.Controls.Add(this.txtTime);
             this.groupBox1.Controls.Add(invoiceNoLabel);
             this.groupBox1.Controls.Add(this.txtDiskID);
-            this.groupBox1.Location = new System.Drawing.Point(161, 139);
+            this.groupBox1.Location = new System.Drawing.Point(225, 240);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(494, 90);
             this.groupBox1.TabIndex = 126;
@@ -189,15 +198,24 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(8);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(947, 436);
+            this.tabPage2.Size = new System.Drawing.Size(1142, 639);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Trả theo đơn";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // textBox4
+            // 
+            this.textBox4.Enabled = false;
+            this.textBox4.Location = new System.Drawing.Point(880, 254);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(62, 23);
+            this.textBox4.TabIndex = 131;
+            this.textBox4.Visible = false;
+            // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(856, 120);
+            this.textBox1.Location = new System.Drawing.Point(880, 225);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(62, 23);
             this.textBox1.TabIndex = 130;
@@ -205,7 +223,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(834, 104);
+            this.btnOK.Location = new System.Drawing.Point(859, 195);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(107, 331);
             this.btnOK.TabIndex = 129;
@@ -216,9 +234,9 @@
             // btnCheck
             // 
             this.btnCheck.Enabled = false;
-            this.btnCheck.Location = new System.Drawing.Point(776, 16);
+            this.btnCheck.Location = new System.Drawing.Point(859, 107);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(112, 82);
+            this.btnCheck.Size = new System.Drawing.Size(107, 82);
             this.btnCheck.TabIndex = 128;
             this.btnCheck.Text = "Check";
             this.btnCheck.UseVisualStyleBackColor = true;
@@ -231,9 +249,9 @@
             this.groupBox2.Controls.Add(this.lblTime);
             this.groupBox2.Controls.Add(label4);
             this.groupBox2.Controls.Add(this.txtRentID);
-            this.groupBox2.Location = new System.Drawing.Point(147, 8);
+            this.groupBox2.Location = new System.Drawing.Point(187, 99);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(536, 90);
+            this.groupBox2.Size = new System.Drawing.Size(654, 90);
             this.groupBox2.TabIndex = 127;
             this.groupBox2.TabStop = false;
             // 
@@ -275,38 +293,23 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 104);
+            this.dataGridView1.Location = new System.Drawing.Point(187, 195);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(820, 330);
+            this.dataGridView1.Size = new System.Drawing.Size(654, 330);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(733, 408);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 129;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(856, 149);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(62, 23);
-            this.textBox4.TabIndex = 131;
-            this.textBox4.Visible = false;
             // 
             // frmReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 462);
+            this.ClientSize = new System.Drawing.Size(1150, 665);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReturn";
             this.Text = "DiskReturn";
             this.tabControl1.ResumeLayout(false);

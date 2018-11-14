@@ -16,7 +16,7 @@ namespace DiskRental
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmRent());
+            Application.Run(new ListDisk());
         }
     }
 }

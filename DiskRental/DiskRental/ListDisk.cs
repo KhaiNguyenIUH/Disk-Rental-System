@@ -14,41 +14,28 @@ namespace DiskRental
         DiskRentalDataContext rent;
         public ListDisk()
         {
-            InitializeComponent();
+            InitializeComponent();          
         }
-        private void setComboDataSource()
+        private void button1_Click(object sender, EventArgs e)
         {
-            cboTittle.DataSource = null;
-            rent = new DiskRentalDataContext();
-            cboTittle.DataSource = rent.Tittles;
-            cboTittle.DisplayMember = "TittleName";
-            cboTittle.ValueMember = "TittleID";
-            cboTittle.Refresh();
-
-        }
-
-        private void movieBindingNavigator_RefreshItems(object sender, EventArgs e)
-        {
-
+            panel1.Visible = true;
+            this.panel1.Controls.Clear();
+            frmRent dk = new frmRent();
+            dk.TopLevel = false;
+            this.panel1.Controls.Add(dk);
+            dk.Show();
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
         }
 
-        private void ListDisk_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            setComboDataSource();
+            this.panel1.Controls.Clear();
+            frmReturn dk = new frmReturn();
+            dk.TopLevel = false;
+            this.panel1.Controls.Add(dk);
+            dk.Show();
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
         }
 
-        private void cboTittle_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboTittle.SelectedItem != null)
-            {
-                Tittle pb = (Tittle)cboTittle.SelectedItem;
-                loadNStoGridView(pb);
-            }
-        }
-        private void loadNStoGridView(Tittle pb)
-        {
-            var nvCol = rent.Disks.Where(nv => nv.TittleID == pb.TittleID);
-            movieDataGridView.DataSource = nvCol;
-        }
     }
 }

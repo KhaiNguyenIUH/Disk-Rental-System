@@ -18,60 +18,29 @@ namespace DiskRental
         {
             InitializeComponent();
         }
-        private void setComboDataSource()
-        {
-            rent = new DiskRentalDataContext();
-            customer_ComboBox.DataSource = null;
-            customer_ComboBox.DataSource = rent.Customers;
-            customer_ComboBox.DisplayMember = "CustomerID";
-            customer_ComboBox.ValueMember = "CustomerID";
-            customer_ComboBox.Refresh();
-            cboTittle.DataSource = null;
-            cboTittle.DataSource = rent.Tittles;
-            cboTittle.DisplayMember = "TittleName";
-            cboTittle.ValueMember = "TittleID";
-            cboTittle.Refresh();
-
-        }
-
         private void frmRent_Load(object sender, EventArgs e)
         {
-            setComboDataSource();   
-        }
 
+        }
         private void label1_Click(object sender, EventArgs e)
         {
            
         }
-        private void customer_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void txtCusID_TextChanged(object sender, EventArgs e)
         {
-            if (customer_ComboBox.SelectedItem != null)
+            try
             {
-                Customer pb = (Customer)customer_ComboBox.SelectedItem;
-                loadCustoTextview(pb);
+                rent = new DiskRentalDataContext();
+                var nvCol = rent.Customers.Where(nv => nv.CustomerID == Int32.Parse(txtCusID.Text)).FirstOrDefault();
+                txtName.Text = nvCol.CustomerName;
             }
-        }
-        private void loadCustoTextview(Customer pb)
-        {
-            var nvCol = rent.Customers.Where(nv => nv.CustomerID == pb.CustomerID).FirstOrDefault();
-            txtName.Text = nvCol.CustomerName; 
+            catch
+            {
+                txtName.Clear();
+            }
         }
 
-        private void cboTittle_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboTittle.SelectedItem != null)
-            {
-                Tittle pb = (Tittle)cboTittle.SelectedItem;
-                loadNStoGridView(pb);
-            }
-        }
-        private void loadNStoGridView(Tittle pb)
-        {
-            var nvCol = rent.Disks.Where(nv => nv.TittleID == pb.TittleID);
-            movieDataGridView.DataSource = nvCol;
-            var nvCol2 = rent.Tittles.Where(nv => nv.TittleID == pb.TittleID).FirstOrDefault();
-            txtCost.Text = nvCol2.Cost.ToString();
-        }
         private void loaddistoGridView(int pb)
         {
             var nvCol3 = rent.RentDetails.Where(nv => nv.RentID == pb);
@@ -79,7 +48,7 @@ namespace DiskRental
         }
         private void btnNewInvoice_Click(object sender, EventArgs e)
         {
-            if (invoiceNoTextBox.Text != "" )
+            if (invoiceNoTextBox.Text != "" && txtName.Text !="")
             {
                 try
                 {
@@ -88,24 +57,30 @@ namespace DiskRental
                     r.RentID = Int32.Parse(invoiceNoTextBox.Text);
                     r.RentDate = DateTime.Now;
                     r.ReturnDate = dateTimePicker1.Value;
-                    r.CustomerID = Int32.Parse(customer_ComboBox.SelectedValue.ToString());                   
+                    r.CustomerID = Int32.Parse(txtCusID.Text);                   
                     rent.RentInfos.InsertOnSubmit(r);
                     rent.SubmitChanges();
                     MessageBox.Show("Success!");
-                    movieDataGridView.Enabled = true;
-                    movieDataGridView.Visible = true;
                     dataGridView1.Enabled = true;
                     dataGridView1.Visible = true;
                     btnChon.Visible = true;
                     btnNewInvoice.Enabled = false;
+                    btnNewInvoice.Enabled = false;
                 }
-                catch(Exception ee)
+                catch(Exception )
                 {
-                    MessageBox.Show("Duplicate ID or wrong formatting");
+                    MessageBox.Show("Trùng mã hoặc sai kiểu dữ liệu");
                     invoiceNoTextBox.Clear();
                     invoiceNoTextBox.Focus();
                 }
             }
+            else
+            {
+                MessageBox.Show("Không tìm thấy CusID");
+                txtCusID.Clear();
+                txtCusID.Focus();
+            }
+            
                  
         }
 
@@ -116,14 +91,15 @@ namespace DiskRental
                 rent = new DiskRentalDataContext();
                 RentDetail r = new RentDetail();
                 r.RentID = Int32.Parse(invoiceNoTextBox.Text);
-                r.DiskID = Int32.Parse(textBox1.Text);
-                var dis= rent.Disks.Where(nv => nv.DiskID == Int32.Parse(textBox1.Text)).FirstOrDefault();
+                r.DiskID = Int32.Parse(txtDiskID.Text);
+                var dis= rent.Disks.Where(nv => nv.DiskID == Int32.Parse(txtDiskID.Text)).FirstOrDefault();
                 dis.DiskStatus = "Not Available";
                 rent.RentDetails.InsertOnSubmit(r);
                 rent.SubmitChanges();
                 loaddistoGridView(Int32.Parse(invoiceNoTextBox.Text));     
                 rse += Decimal.Parse(txtCost.Text);
                 cashTextBox.Text = rse.ToString();
+                btnChon.Enabled = false;
             }
             catch
             {
@@ -132,17 +108,9 @@ namespace DiskRental
         }
         private void GetDiskID(DataGridViewRow dtr)
         {
-            textBox1.Text = dtr.Cells[0].Value.ToString();        
+            txtDiskID.Text = dtr.Cells[0].Value.ToString();        
         }
-
-        private void movieDataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            DataGridViewRow dtr = movieDataGridView.CurrentRow;
-            if (dtr != null && !dtr.IsNewRow)
-            {
-                GetDiskID(dtr);             
-            }
-        }
+       
         private void button1_Click(object sender, EventArgs e)
         {
             rent = new DiskRentalDataContext();
@@ -153,39 +121,90 @@ namespace DiskRental
             btnChon.Enabled = true;
             invoiceNoTextBox.Clear();
             cashTextBox.Clear();
-            btnNewInvoice.Enabled = true;
-            movieDataGridView.Enabled = false;
-            movieDataGridView.Visible = false;
+            btnNewInvoice.Enabled = false;
+            txtTitle.Clear();
+            txtCost.Clear();
+            txtDes.Clear();
+            txtCusID.Clear();
+            txtDiskID.Clear();
+            btnChon.Enabled = false;
             dataGridView1.Enabled = false;
             dataGridView1.Visible = false;
-            btnChon.Visible = false;
             dataGridView1.DataSource = null;
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
             rent = new DiskRentalDataContext();
+            if(txtCusID.Text!="")
+            {
+                try
+                {
+                    var u = rent.RentInfos.Where(b => b.CustomerID == Int32.Parse(txtCusID.Text) && b.LateFee != null).FirstOrDefault();
+                    DialogResult dialogResult = MessageBox.Show("Phí: " + u.LateFee.ToString(), "Thanh Toán phí trễ hạn", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        rent = new DiskRentalDataContext();
+                        var y = rent.RentInfos.Where(b => b.CustomerID == Int32.Parse(txtCusID.Text) && b.LateFee != null).FirstOrDefault();
+                        y.LateFee = null;
+                        rent.SubmitChanges();
+                        MessageBox.Show("Thanh toán thành công");
+                        btnNewInvoice.Enabled = true;
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        MessageBox.Show("Phải thanh toán để tiếp tục");
+                        btnNewInvoice.Enabled = false;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Không tìm thấy thông tin phí trễ");
+                    btnNewInvoice.Enabled = true;
+                }
+            }
+
+        }
+
+        private void txtDiskID_TextChanged(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void btnCheckDisk_Click(object sender, EventArgs e)
+        {
             try
             {
-                var u = rent.RentInfos.Where(b => b.CustomerID == Int32.Parse(customer_ComboBox.SelectedValue.ToString()) && b.LateFee != null).FirstOrDefault();
-                DialogResult dialogResult = MessageBox.Show("Fee: " + u.LateFee.ToString(), "Thanh Toán phí trễ hạn", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    rent = new DiskRentalDataContext();
-                    var y = rent.RentInfos.Where(b => b.CustomerID == Int32.Parse(customer_ComboBox.SelectedValue.ToString()) && b.LateFee != null).FirstOrDefault();
-                    y.LateFee = null;
-                    rent.SubmitChanges();
-                    MessageBox.Show("Thanh toán thành công");
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    MessageBox.Show("Phải thanh toán để tiếp tục");
-                }
+                rent = new DiskRentalDataContext();
+                var v = (from r in rent.Disks
+                         join a in rent.Tittles on r.TittleID equals a.TittleID
+                         where r.DiskID == Int32.Parse(txtDiskID.Text)
+                         select new
+                         {
+                             r.DiskID,
+                             a.TittleName,
+                             a.Cost,
+                             a.TittleDescription
+                         }).FirstOrDefault();
+                txtTitle.Text = v.TittleName.ToString();
+                txtCost.Text = v.Cost.ToString();
+                txtDes.Text = v.TittleDescription.ToString();
+                btnChon.Enabled = true;
             }
             catch
             {
-                MessageBox.Show("Thanh toán đầy đủ");
+                txtTitle.Clear();
+                txtCost.Clear();
+                txtDes.Clear();
+                btnChon.Enabled = false;
             }
+
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

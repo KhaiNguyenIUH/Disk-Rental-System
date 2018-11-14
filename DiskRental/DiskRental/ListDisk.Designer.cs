@@ -28,148 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListDisk));
-            this.movieBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.movieBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.btn_Refresh = new System.Windows.Forms.ToolStripButton();
-            this.btn_Edit = new System.Windows.Forms.ToolStripButton();
-            this.cboTittle = new System.Windows.Forms.ComboBox();
-            this.diskRentalDataSet = new DiskRental.DiskRentalDataSet();
-            this.diskRentalDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.movieDataGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.movieBindingNavigator)).BeginInit();
-            this.movieBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.diskRentalDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.diskRentalDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movieDataGridView)).BeginInit();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // movieBindingNavigator
+            // panel3
             // 
-            this.movieBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.movieBindingNavigator.CountItem = null;
-            this.movieBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.movieBindingNavigator.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.movieBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.movieBindingNavigatorSaveItem,
-            this.btn_Refresh,
-            this.btn_Edit});
-            this.movieBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.movieBindingNavigator.MoveFirstItem = null;
-            this.movieBindingNavigator.MoveLastItem = null;
-            this.movieBindingNavigator.MoveNextItem = null;
-            this.movieBindingNavigator.MovePreviousItem = null;
-            this.movieBindingNavigator.Name = "movieBindingNavigator";
-            this.movieBindingNavigator.PositionItem = null;
-            this.movieBindingNavigator.Size = new System.Drawing.Size(1009, 25);
-            this.movieBindingNavigator.TabIndex = 5;
-            this.movieBindingNavigator.Text = "bindingNavigator1";
-            this.movieBindingNavigator.RefreshItems += new System.EventHandler(this.movieBindingNavigator_RefreshItems);
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Location = new System.Drawing.Point(-3, -1);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(204, 666);
+            this.panel3.TabIndex = 1;
             // 
-            // bindingNavigatorAddNewItem
+            // button2
             // 
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(77, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(15, 168);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(178, 48);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Trả";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // bindingNavigatorDeleteItem
+            // button1
             // 
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(65, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(15, 79);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(178, 48);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Thuê ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // movieBindingNavigatorSaveItem
+            // panel1
             // 
-            this.movieBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("movieBindingNavigatorSaveItem.Image")));
-            this.movieBindingNavigatorSaveItem.Name = "movieBindingNavigatorSaveItem";
-            this.movieBindingNavigatorSaveItem.Size = new System.Drawing.Size(86, 22);
-            this.movieBindingNavigatorSaveItem.Text = "Save Data";
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_Refresh.Image")));
-            this.btn_Refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(72, 22);
-            this.btn_Refresh.Text = "&Refresh";
-            // 
-            // btn_Edit
-            // 
-            this.btn_Edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_Edit.Image")));
-            this.btn_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Edit.Name = "btn_Edit";
-            this.btn_Edit.Size = new System.Drawing.Size(49, 22);
-            this.btn_Edit.Text = "&Edit";
-            // 
-            // cboTittle
-            // 
-            this.cboTittle.FormattingEnabled = true;
-            this.cboTittle.Location = new System.Drawing.Point(643, 2);
-            this.cboTittle.Margin = new System.Windows.Forms.Padding(2);
-            this.cboTittle.Name = "cboTittle";
-            this.cboTittle.Size = new System.Drawing.Size(364, 21);
-            this.cboTittle.TabIndex = 6;
-            this.cboTittle.SelectedIndexChanged += new System.EventHandler(this.cboTittle_SelectedIndexChanged);
-            // 
-            // diskRentalDataSet
-            // 
-            this.diskRentalDataSet.DataSetName = "DiskRentalDataSet";
-            this.diskRentalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // diskRentalDataSetBindingSource
-            // 
-            this.diskRentalDataSetBindingSource.DataSource = this.diskRentalDataSet;
-            this.diskRentalDataSetBindingSource.Position = 0;
-            // 
-            // movieDataGridView
-            // 
-            this.movieDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.movieDataGridView.Location = new System.Drawing.Point(0, 28);
-            this.movieDataGridView.Name = "movieDataGridView";
-            this.movieDataGridView.Size = new System.Drawing.Size(1007, 565);
-            this.movieDataGridView.TabIndex = 7;
+            this.panel1.Location = new System.Drawing.Point(206, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1150, 665);
+            this.panel1.TabIndex = 2;
             // 
             // ListDisk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1009, 593);
-            this.Controls.Add(this.movieDataGridView);
-            this.Controls.Add(this.cboTittle);
-            this.Controls.Add(this.movieBindingNavigator);
+            this.ClientSize = new System.Drawing.Size(1358, 664);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ListDisk";
             this.Text = "ListDisk";
-            this.Load += new System.EventHandler(this.ListDisk_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.movieBindingNavigator)).EndInit();
-            this.movieBindingNavigator.ResumeLayout(false);
-            this.movieBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.diskRentalDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.diskRentalDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movieDataGridView)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingNavigator movieBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton movieBindingNavigatorSaveItem;
-        private System.Windows.Forms.ToolStripButton btn_Refresh;
-        private System.Windows.Forms.ToolStripButton btn_Edit;
-        private System.Windows.Forms.ComboBox cboTittle;
-        private DiskRentalDataSet diskRentalDataSet;
-        private System.Windows.Forms.BindingSource diskRentalDataSetBindingSource;
-        private System.Windows.Forms.DataGridView movieDataGridView;
+
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
