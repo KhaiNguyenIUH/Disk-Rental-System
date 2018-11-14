@@ -1,0 +1,12 @@
+H:\PUYT\DiskRental\DiskRental\bin\Debug\DiskRental.exe.config
+H:\PUYT\DiskRental\DiskRental\bin\Debug\DiskRental.exe
+H:\PUYT\DiskRental\DiskRental\bin\Debug\DiskRental.pdb
+H:\PUYT\DiskRental\DiskRental\obj\Debug\DiskRental.ListDisk.resources
+H:\PUYT\DiskRental\DiskRental\obj\Debug\DiskRental.Properties.Resources.resources
+H:\PUYT\DiskRental\DiskRental\obj\Debug\DiskRental.csproj.GenerateResource.cache
+H:\PUYT\DiskRental\DiskRental\obj\Debug\DiskRental.csproj.CoreCompileInputs.cache
+H:\PUYT\DiskRental\DiskRental\obj\Debug\DiskRental.exe
+H:\PUYT\DiskRental\DiskRental\obj\Debug\DiskRental.pdb
+H:\PUYT\DiskRental\DiskRental\obj\Debug\DiskRental.frmRent.resources
+H:\PUYT\DiskRental\DiskRental\obj\Debug\DiskRental.csprojAssemblyReference.cache
+H:\PUYT\DiskRental\DiskRental\obj\Debug\DiskRental.frmReturn.resources

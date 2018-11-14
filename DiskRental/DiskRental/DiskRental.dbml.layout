@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.25" name="DiskRental">
+  <DataContextMoniker Name="/DiskRentalDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e461487f-856d-4cf8-aebc-97cd4ad5923b" absoluteBounds="3.5, 2.875, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/DiskRentalDataContext/BookList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="385cd0e7-e39c-45e7-b2a6-1903c9cd58e1" absoluteBounds="3.515, 3.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d771977e-c41c-4e94-9dfc-a0c2fc85bcc2" absoluteBounds="0.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DiskRentalDataContext/Tittle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c1cebdc-ff62-47fe-a438-b8a383a39aa9" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6149780c-79a7-4a80-b761-4fad7b7a5865" absoluteBounds="0.75, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DiskRentalDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3cabad1-32ff-4045-af9d-2ed6304ad35b" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ab2bac3-a8b8-4665-8bb4-7a4baa5743fe" absoluteBounds="3.5, 5.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DiskRentalDataContext/RentInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="051afe47-99d5-4e9f-bc60-6d31d70e9bc9" absoluteBounds="3.515, 6.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.53929768880208); (4.5 : 1.53929768880208); (4.5 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DiskRentalDataContext/Tittle/Tittle_BookList" />
+      <nodes>
+        <classShapeMoniker Id="d771977e-c41c-4e94-9dfc-a0c2fc85bcc2" />
+        <classShapeMoniker Id="e461487f-856d-4cf8-aebc-97cd4ad5923b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.00564697265625); (3.5 : 4.00564697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DiskRentalDataContext/Customer/Customer_BookList" />
+      <nodes>
+        <classShapeMoniker Id="6149780c-79a7-4a80-b761-4fad7b7a5865" />
+        <classShapeMoniker Id="e461487f-856d-4cf8-aebc-97cd4ad5923b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 5.32859537760417); (1.75 : 6.73159912109375); (3.5 : 6.73159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DiskRentalDataContext/Customer/Customer_RentInfo" />
+      <nodes>
+        <classShapeMoniker Id="6149780c-79a7-4a80-b761-4fad7b7a5865" />
+        <classShapeMoniker Id="4ab2bac3-a8b8-4665-8bb4-7a4baa5743fe" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="63250037-0f08-4156-bc7a-b2651cc14b0a" absoluteBounds="5.5, 8.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DiskRentalDataContext/Disk" />
+      <nestedChildShapes>
+        <elementListCompartment Id="589d802e-8971-4c2f-a543-913f6a53f30a" absoluteBounds="5.515, 9.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.96519903320312); (4.41666666666667 : 1.96519903320312 : JumpStart); (4.58333333333333 : 1.96519903320312 : JumpEnd); (6.53125 : 1.96519903320312); (6.53125 : 8.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DiskRentalDataContext/Tittle/Tittle_Disk" />
+      <nodes>
+        <classShapeMoniker Id="d771977e-c41c-4e94-9dfc-a0c2fc85bcc2" />
+        <classShapeMoniker Id="63250037-0f08-4156-bc7a-b2651cc14b0a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="67b75a99-07eb-40a6-856e-3de532de8c1d" absoluteBounds="7.625, 5.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DiskRentalDataContext/RentDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7038bae5-50aa-41dc-b0ef-d44a01c6a802" absoluteBounds="7.64, 6.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.0468775 : 8.625); (7.0468775 : 6.31814697265625); (7.625 : 6.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DiskRentalDataContext/Disk/Disk_RentDetail" />
+      <nodes>
+        <classShapeMoniker Id="63250037-0f08-4156-bc7a-b2651cc14b0a" />
+        <classShapeMoniker Id="67b75a99-07eb-40a6-856e-3de532de8c1d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.72722045898437); (6.44791666666667 : 6.72722045898437 : JumpStart); (6.61458333333333 : 6.72722045898437 : JumpEnd); (6.96354416666667 : 6.72722045898437 : JumpStart); (7.13021083333333 : 6.72722045898437 : JumpEnd); (7.625 : 6.72722045898437)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DiskRentalDataContext/RentInfo/RentInfo_RentDetail" />
+      <nodes>
+        <classShapeMoniker Id="4ab2bac3-a8b8-4665-8bb4-7a4baa5743fe" />
+        <classShapeMoniker Id="67b75a99-07eb-40a6-856e-3de532de8c1d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

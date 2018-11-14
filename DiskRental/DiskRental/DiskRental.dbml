@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DiskRental" Class="DiskRentalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=KHAINGUYEN\SQLEXPRESS;Initial Catalog=DiskRental;Integrated Security=True" SettingsObjectName="DiskRental.Properties.Settings" SettingsPropertyName="DiskRentalConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BookList" Member="BookLists">
+    <Type Name="BookList">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BookDay" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TittleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Tittle_BookList" Member="Tittle" ThisKey="TittleID" OtherKey="TittleID" Type="Tittle" IsForeignKey="true" />
+      <Association Name="Customer_BookList" Member="Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tittle" Member="Tittles">
+    <Type Name="Tittle">
+      <Column Name="TittleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TittleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TittleDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Tittle_BookList" Member="BookLists" ThisKey="TittleID" OtherKey="TittleID" Type="BookList" />
+      <Association Name="Tittle_Disk" Member="Disks" ThisKey="TittleID" OtherKey="TittleID" Type="Disk" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerPhone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Customer_BookList" Member="BookLists" ThisKey="CustomerID" OtherKey="CustomerID" Type="BookList" />
+      <Association Name="Customer_RentInfo" Member="RentInfos" ThisKey="CustomerID" OtherKey="CustomerID" Type="RentInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RentInfo" Member="RentInfos">
+    <Type Name="RentInfo">
+      <Column Name="RentDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RentCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LateFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="RentInfo_RentDetail" Member="RentDetails" ThisKey="RentID" OtherKey="RentID" Type="RentDetail" />
+      <Association Name="Customer_RentInfo" Member="Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Disk]" Member="Disks">
+    <Type Name="Disk">
+      <Column Name="DiskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TittleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiskStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Disk_RentDetail" Member="RentDetails" ThisKey="DiskID" OtherKey="DiskID" Type="RentDetail" />
+      <Association Name="Tittle_Disk" Member="Tittle" ThisKey="TittleID" OtherKey="TittleID" Type="Tittle" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RentDetail" Member="RentDetails">
+    <Type Name="RentDetail">
+      <Column Name="RentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DiskID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Disk_RentDetail" Member="Disk" ThisKey="DiskID" OtherKey="DiskID" Type="Disk" IsForeignKey="true" />
+      <Association Name="RentInfo_RentDetail" Member="RentInfo" ThisKey="RentID" OtherKey="RentID" Type="RentInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
